@@ -1,0 +1,9 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <Host>localhost</Host>
+    <Port>3306</Port>
+	<dbname>ezappointment</dbname>
+	<Username>root</Username>
+	<Password>mysql</Password>
+	<NoOfConnections>15</NoOfConnections>
+</config> -->

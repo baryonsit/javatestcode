@@ -1,0 +1,52 @@
+.paginationstyle{ /*Style for demo pagination divs*/
+width: 100%;
+text-align: center;
+padding: 2px 0;
+margin: 10px 0;outline:none;
+}
+
+.paginationstyle select{ /*Style for demo pagination divs' select menu*/
+border: 1px solid navy;
+margin: 0 15px;outline:none;
+}
+
+.paginationstyle a{ /*Pagination links style*/
+padding: 0 5px;
+text-decoration: none;
+border: 1px solid #4A657F;
+color: #4A657F;
+background-color: white;outline:none;
+}
+
+.paginationstyle a:hover, .paginationstyle a.selected{
+color: #000;
+background-color: #FEE496;outline:none;
+}
+
+.paginationstyle a.disabled, .paginationstyle a.disabled:hover{ /*Style for "disabled" previous or next link*/
+background-color: white;
+cursor: default;
+color: #929292;
+border-color: transparent;outline:none;
+}
+
+.paginationstyle a.imglinks{ /*Pagination Image links style (class="imglinks") */
+border: 0;
+padding: 0;outline:none;
+}
+
+.paginationstyle a.imglinks img{
+vertical-align: bottom;
+border: 0;outline:none;
+}
+
+.paginationstyle a.imglinks a:hover{
+background: none;outline:none;
+}
+
+.paginationstyle .flatview a:hover, .paginationstyle .flatview a.selected{ /*Pagination div "flatview" links style*/
+color: #fff;
+background-color: #4A657F;outline:none;
+}
+
+.tr_bdr{border : 1px solid #D0CECE;}

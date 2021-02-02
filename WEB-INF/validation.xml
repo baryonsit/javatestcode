@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+   <global>
+      <constant>
+        <constant-name>phone</constant-name>
+        <constant-value>^\(?(\d{3})\)?[-| ]?(\d{3})[-| ]?(\d{4})$</constant-value>
+      </constant>
+      <constant>
+        <constant-name>zip</constant-name>
+        <constant-value>^\d{5}\d*$</constant-value>
+      </constant>
+   </global>
+   <formset>
+      <constant>
+        <constant-name>zip</constant-name>
+        <constant-value>^\d{5}(-\d{4})?$</constant-value>
+      </constant>
+
+	<form name="forgotpasswordForm">
+			<field property="passemail" depends="required,email">
+				<arg0 key="forgotpasswordForm.passemail.displayname" />
+			</field>
+	  </form>
+	  
+<!-- 	  here we are commenting,because it is validating every time with the login details of user login form --> 
+	 
+	  <!-- User Login -->
+		<!-- <form name="loginForm">
+			<field property="loginun"
+				depends="required,mask,minlength">
+				<arg0 key="loginForm.loginun.displayname" />
+				<arg1 name="minlength" key="${var:minlength}"
+					resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9_]*$</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+			</field>
+			<field property="loginpwd" depends="required,minlength">
+				<arg0 key="loginForm.loginpwd.displayname" />
+				<arg1 name="minlength" key="${var:minlength}"
+					resource="false" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+			</field>
+		</form> -->
+
+      <!-- Business Owner Registration -->
+	<form name="registrationForm">
+		<field property="username"
+			depends="required,mask,minlength">
+			<arg0 key="registrationForm.username.displayname" />
+			<arg1 name="minlength" key="${var:minlength}"
+				resource="false" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z0-9_]*$</var-value>
+			</var>
+			<var>
+				<var-name>minlength</var-name>
+				<var-value>3</var-value>
+			</var>
+		</field>
+		<field property="pass1" depends="required,mask,minlength">
+			<arg0 key="registrationForm.pass1.displayname" />
+			<arg1 name="minlength" key="${var:minlength}"
+				resource="false" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z0-9_]*$</var-value>
+			</var>
+			<var>
+				<var-name>minlength</var-name>
+				<var-value>3</var-value>
+			</var>
+		</field>
+		<field property="pass2" depends="required,mask,minlength">
+			<arg0 key="registrationForm.pass2.displayname" />
+			<arg1 name="minlength" key="${var:minlength}"
+				resource="false" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z0-9_]*$</var-value>
+			</var>
+			<var>
+				<var-name>minlength</var-name>
+				<var-value>3</var-value>
+			</var>
+		</field>
+		<field property="fname" depends="required,mask">
+			<arg0 key="registrationForm.fname.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z ]*$</var-value>
+			</var>
+		</field>
+		<field property="mname" depends="mask">
+			<arg0 key="registrationForm.mname.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z ]*$</var-value>
+			</var>
+		</field>
+		<field property="lname" depends="required,mask">
+			<arg0 key="registrationForm.lname.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z ]*$</var-value>
+			</var>
+		</field>
+		<field property="email" depends="required,email">
+			<arg0 key="registrationForm.email.displayname" />
+			</field>
+		<field property="contact" depends="required,mask,minlength1,maxlength1">
+			<arg0 key="registrationForm.contact.displayname" />
+			<arg1 name="minlength1" key="${var:minlength}"
+				resource="false" />
+		    <arg1 name="maxlength1" key="${var:maxlength}"
+				resource="false" />		
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[0-9-+]*$</var-value>
+			</var>
+			<var>
+				<var-name>minlength</var-name>
+				<var-value>10</var-value>
+			</var>
+			<var>
+				<var-name>maxlength</var-name>
+				<var-value>10</var-value>
+			</var>
+			                                                    
+		</field>
+		<field property="add1" depends="required,mask">
+			<arg0 key="registrationForm.add1.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z0-9# ,'"]*$</var-value>
+			</var>
+		</field>
+		<field property="add2" depends="mask">
+			<arg0 key="registrationForm.add2.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z0-9# ,'"]*$</var-value>
+			</var>
+		</field>
+		<field property="city" depends="required,mask">
+			<arg0 key="registrationForm.city.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z ]*$</var-value>
+			</var>
+		</field>
+		<field property="zipcode" depends="required,mask">
+			<arg0 key="registrationForm.zipcode.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^\d{5}\d*$</var-value>
+			</var>
+		</field>
+		<field property="bissname"
+			depends="required,mask,minlength">
+			<arg0 key="registrationForm.bissname.displayname" />
+			<arg1 name="minlength" key="${var:minlength}"
+				resource="false" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z0-9 ]*$</var-value>
+			</var>
+			<var>
+				<var-name>minlength</var-name>
+				<var-value>3</var-value>
+			</var>
+		</field>
+		<field property="bissowner" depends="required,mask">
+			<arg0 key="registrationForm.bissowner.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z .]*$</var-value>
+			</var>
+		</field>
+		<field property="bissstart" depends="required,date">
+			<arg0 key="registrationForm.bissstart.displayname" />
+			<var>
+				<var-name>datePatternStrict</var-name>
+				<var-value>yyyy-MM-dd</var-value>
+			</var>
+		</field>
+		<field property="bissend" depends="required,date">
+			<arg0 key="registrationForm.bissend.displayname" />
+			<var>
+				<var-name>datePatternStrict</var-name>
+				<var-value>yyyy-MM-dd</var-value>
+			</var>
+		</field>
+		<field property="bissadd1" depends="required,mask">
+			<arg0 key="registrationForm.bissadd1.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z#-/0-9, '"]*$</var-value>
+			</var>
+		</field>
+		<field property="bissadd2" depends="mask">
+			<arg0 key="registrationForm.bissadd2.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z#-/0-9, '"]*$</var-value>
+			</var>
+		</field>
+		<field property="bisscity" depends="required,mask">
+			<arg0 key="registrationForm.bisscity.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z ]*$</var-value>
+			</var>
+		</field>
+		<field property="bisszipcode" depends="required,mask">
+			<arg0 key="registrationForm.bisszipcode.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^\d{5}\d*$</var-value>
+			</var>
+		</field>
+		<field property="bissdesc" depends="required,mask">
+			<arg0 key="registrationForm.bissdesc.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z0-9 .'"]*$</var-value>
+			</var>
+		</field>
+		
+		</form>
+		
+		
+		<!-- Business User Registration -->
+		<form name="businessuserregistrationForm">
+			<field property="username"
+				depends="required,mask,minlength">
+				<arg0
+					key="businessuserregistrationForm.username.displayname" />
+				<arg1 name="minlength" key="${var:minlength}"
+					resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9_]*$</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+			</field>
+			<field property="pass1" depends="required,mask,minlength">
+				<arg0
+					key="businessuserregistrationForm.pass1.displayname" />
+				<arg1 name="minlength" key="${var:minlength}"
+					resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9_]*$</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+			</field>
+			<field property="pass2" depends="required,mask,minlength">
+				<arg0
+					key="businessuserregistrationForm.pass2.displayname" />
+				<arg1 name="minlength" key="${var:minlength}"
+					resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9_]*$</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+			</field>
+			<field property="fname" depends="required,mask">
+				<arg0
+					key="businessuserregistrationForm.fname.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z ]*$</var-value>
+				</var>
+			</field>
+			<field property="mname" depends="mask">
+				<arg0
+					key="businessuserregistrationForm.mname.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z ]*$</var-value>
+				</var>
+			</field>
+			<field property="lname" depends="required,mask">
+				<arg0
+					key="businessuserregistrationForm.lname.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z ]*$</var-value>
+				</var>
+			</field>
+			<field property="email" depends="required,email">
+				<arg0
+					key="businessuserregistrationForm.email.displayname" />
+
+			</field>
+			<field property="contact" depends="required,mask,minlength1,maxlength1">
+				<arg0
+					key="businessuserregistrationForm.contact.displayname" />
+					<arg1 name="minlength1" key="${var:minlength}"
+				resource="false" />
+		    <arg1 name="maxlength1" key="${var:maxlength}"
+				resource="false" />	
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9-+]*$</var-value>
+				</var>
+				<var>
+				<var-name>minlength</var-name>
+				<var-value>10</var-value>
+			</var>
+			<var>
+				<var-name>maxlength</var-name>
+				<var-value>10</var-value>
+			</var>
+			</field>
+			<field property="add1" depends="required,mask">
+				<arg0 key="businessuserregistrationForm.add1.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9# ,'"]*$</var-value>
+				</var>
+			</field>
+			<field property="add2" depends="mask">
+				<arg0 key="businessuserregistrationForm.add2.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9# ,'"]*$</var-value>
+				</var>
+			</field>
+			<field property="city" depends="required,mask">
+				<arg0
+					key="businessuserregistrationForm.city.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z ]*$</var-value>
+				</var>
+			</field>
+			<field property="zipcode" depends="required,mask">
+				<arg0
+					key="businessuserregistrationForm.zipcode.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{5}\d*$</var-value>
+				</var>
+			</field>
+			<!-- <field property="memberid" depends="mask">
+				<arg0 key="businessuserregistrationForm.memberid.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9 -]*$</var-value>
+				</var>
+			</field> -->
+		</form>
+		
+		
+	  
+	  <form    name="changepasswordForm">
+         <field    property="currpass"
+         	   depends="required,mask,minlength">
+         	     <arg0 key="changepasswordForm.currpass.displayname"/>
+         	     <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+                     <var>
+                       <var-name>mask</var-name>
+                       <var-value>^[a-zA-Z0-9_]*$</var-value>
+                     </var>
+                     <var>
+                       <var-name>minlength</var-name>
+                       <var-value>3</var-value>
+                     </var>
+         </field>
+		 <field    property="newpass"
+         	   depends="required,mask,minlength">
+         	     <arg0 key="changepasswordForm.newpass.displayname"/>
+         	     <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+                     <var>
+                       <var-name>mask</var-name>
+                       <var-value>^[a-zA-Z0-9_]*$</var-value>
+                     </var>
+                     <var>
+                       <var-name>minlength</var-name>
+                       <var-value>3</var-value>
+                     </var>
+         </field>
+		 <field    property="confpass"
+         	   depends="required,mask,minlength">
+         	     <arg0 key="changepasswordForm.confpass.displayname"/>
+         	     <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+                     <var>
+                       <var-name>mask</var-name>
+                      <var-value>^[a-zA-Z0-9_]*$</var-value>
+                     </var>
+                     <var>
+                       <var-name>minlength</var-name>
+                       <var-value>3</var-value>
+                     </var>
+         </field>
+      	</form>
+      	
+      	<!-- Business Owner Profile -->
+	<!-- <form name="profileForm">
+		<field property="fname" depends="required,mask">
+			<arg0 key="profileForm.fname.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z ]*$</var-value>
+			</var>
+		</field>
+		<field property="mname" depends="mask">
+			<arg0 key="profileForm.mname.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z ]*$</var-value>
+			</var>
+		</field>
+		<field property="lname" depends="required,mask">
+			<arg0 key="profileForm.lname.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z ]*$</var-value>
+			</var>
+		</field>
+		<field property="email" depends="required,email">
+			<arg0 key="profileForm.email.displayname" />
+			</field>
+		<field property="contact" depends="required,mask">
+			<arg0 key="profileForm.contact.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[0-9-+]*$</var-value>
+			</var>
+		</field>
+		<field property="add1" depends="required,mask">
+			<arg0 key="profileForm.add1.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z#-/0-9, '"]*$</var-value>
+			</var>
+		</field>
+		<field property="add2" depends="mask">
+			<arg0 key="profileForm.add2.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z#-/0-9, '"]*$</var-value>
+			</var>
+		</field>
+		<field property="city" depends="required,mask">
+			<arg0 key="profileForm.city.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z ]*$</var-value>
+			</var>
+		</field>
+		<field property="zipcode" depends="required,mask">
+			<arg0 key="profileForm.zipcode.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^\d{5}\d*$</var-value>
+			</var>
+		</field>
+		<field property="bissname"
+			depends="required,mask,minlength">
+			<arg0 key="profileForm.bissname.displayname" />
+			<arg1 name="minlength" key="${var:minlength}"
+				resource="false" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z0-9 ]*$</var-value>
+			</var>
+			<var>
+				<var-name>minlength</var-name>
+				<var-value>3</var-value>
+			</var>
+		</field>
+		<field property="bissowner" depends="required,mask">
+			<arg0 key="profileForm.bissowner.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z .]*$</var-value>
+			</var>
+		</field>
+		<field property="bissstart" depends="required,date">
+			<arg0 key="profileForm.bissstart.displayname" />
+			<var>
+				<var-name>datePatternStrict</var-name>
+				<var-value>yyyy-MM-dd</var-value>
+			</var>
+		</field>
+		<field property="bissend" depends="required,date">
+			<arg0 key="profileForm.bissend.displayname" />
+			<var>
+				<var-name>datePatternStrict</var-name>
+				<var-value>yyyy-MM-dd</var-value>
+			</var>
+		</field>
+		<field property="bissadd1" depends="required,mask">
+			<arg0 key="profileForm.bissadd1.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z#-/0-9, '"]*$</var-value>
+			</var>
+		</field>
+		<field property="bissadd2" depends="mask">
+			<arg0 key="profileForm.bissadd2.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z#-/0-9, '"]*$</var-value>
+			</var>
+		</field>
+		<field property="bisscity" depends="required,mask">
+			<arg0 key="profileForm.bisscity.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z ]*$</var-value>
+			</var>
+		</field>
+		<field property="bisszipcode" depends="required,mask">
+			<arg0 key="profileForm.bisszipcode.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^\d{5}\d*$</var-value>
+			</var>
+		</field>
+		<field property="bissdesc" depends="required,mask">
+			<arg0 key="profileForm.bissdesc.displayname" />
+			<var>
+				<var-name>mask</var-name>
+				<var-value>^[a-zA-Z0-9 .'"]*$</var-value>
+			</var>
+		</field>
+		
+		</form> -->
+		
+		
+		<!-- Business User Profile Management -->
+		<form name="userprofileForm">
+			<field property="fname" depends="required,mask">
+				<arg0
+					key="userprofileForm.fname.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z ]*$</var-value>
+				</var>
+			</field>
+			<field property="mname" depends="mask">
+				<arg0
+					key="userprofileForm.mname.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z ]*$</var-value>
+				</var>
+			</field>
+			<field property="lname" depends="required,mask">
+				<arg0
+					key="userprofileForm.lname.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z ]*$</var-value>
+				</var>
+			</field>
+			<field property="email" depends="required,email">
+				<arg0
+					key="userprofileForm.email.displayname" />
+
+			</field>
+			<field property="contact" depends="required,mask">
+				<arg0
+					key="userprofileForm.contact.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9-+]*$</var-value>
+				</var>
+			</field>
+			<field property="add1" depends="required,mask">
+				<arg0 key="userprofileForm.add1.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9# ,'"]*$</var-value>
+				</var>
+			</field>
+			<field property="add2" depends="mask">
+				<arg0 key="userprofileForm.add2.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9# ,'"]*$</var-value>
+				</var>
+			</field>
+			<field property="city" depends="required,mask">
+				<arg0
+					key="userprofileForm.city.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9 ]*$</var-value>
+				</var>
+			</field>
+			<field property="zipcode" depends="required,mask">
+				<arg0
+					key="userprofileForm.zipcode.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{5}\d*$</var-value>
+				</var>
+			</field>
+			<!-- <field property="memberid" depends="mask">
+				<arg0 key="userprofileForm.memberid.displayname" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9 -]*$</var-value>
+				</var>
+			</field> -->
+		</form>
+      	
+      	
+      	 <form   name="subscriptionmangeform">
+         <field  property="subname"
+         	   depends="required,mask">
+         	     <arg0 key="subscriptionmangeform.subname.displayname"/>
+         	    
+                     <var>
+                       <var-name>mask</var-name>
+                       <var-value>^[a-zA-Z ']*$</var-value>
+                     </var>
+                     
+         </field>
+         <field  property="subdesc"
+         	   depends="required,mask">
+         	     <arg0 key="subscriptionmangeform.subdesc.displayname"/>
+         	    
+                     <var>
+                       <var-name>mask</var-name>
+                     <var-value>^[a-zA-Z0-9 ."'(),]*$</var-value>
+                     </var>
+                     
+         </field>
+        
+         
+         </form>
+         <!-- <form   name="addfacilityform">
+         <field  property="facilityname"
+         	   depends="required,mask">
+         	     <arg0 key="addfacilityform.facilityname.displayname"/>         	    
+                     <var>
+                       <var-name>mask</var-name>
+                       <var-value>^[a-zA-Z ']*$</var-value>
+                     </var>
+                     
+         </field>
+         <field  property="userName"
+         	   depends="required,mask">
+         	     <arg0 key="addfacilityform.userName.displayname"/>         	    
+                     <var>
+                       <var-name>mask</var-name>
+                       <var-value>^[a-zA-Z ']*$</var-value>
+                     </var>
+                     
+         </field>
+         
+          <field property="facstartdate"
+         	   depends="required,date">
+         	     <arg0 key="addfacilityform.facstartdate.displayname"/>
+                     <var>
+                       <var-name>datePatternStrict</var-name>
+                       <var-value>yyyy-mm-dd</var-value>
+                     </var>
+         </field>
+         
+          <field property="facenddate"
+         	   depends="required,date">
+         	     <arg0 key="addfacilityform.facenddate.displayname"/>
+                     <var>
+                       <var-name>datePatternStrict</var-name>
+                       <var-value>yyyy-mm-dd</var-value>
+                     </var>
+         </field>
+         
+         
+          <field  property="description"
+         	   depends="required,mask">
+         	     <arg0 key="addfacilityform.description.displayname"/>         	    
+                     <var>
+                       <var-name>mask</var-name>
+                       <var-value>^[a-zA-Z#-/0-9, '"]*$</var-value>
+                     </var>
+                     
+         </field>
+         
+         
+          <field  property="facadd1"
+         	   depends="required,mask">
+         	     <arg0 key="addfacilityform.facadd1.displayname"/>         	    
+                     <var>
+                       <var-name>mask</var-name>
+                       <var-value>^[a-zA-Z#-/0-9, '"]*$</var-value>
+                     </var>
+                     
+         </field>
+         
+         
+          <field  property="facadd2"
+         	   depends="mask">
+         	     <arg0 key="addfacilityform.facadd2.displayname"/>         	    
+                     <var>
+                       <var-name>mask</var-name>
+                       <var-value>^[a-zA-Z#-/0-9, '"]*$</var-value>
+                     </var>
+                     
+         </field>
+         
+         <field property="facopentime"
+         	   depends="required">
+         	     <arg0 key="addfacilityform.facopentime.displayname"/>
+                 
+         </field>
+         
+         
+          <field property="facclosetime"
+         	   depends="required">
+         	     <arg0 key="addfacilityform.facclosetime.displayname"/>
+                 
+         </field>
+         
+         <field property="timeslot"
+         	   depends="required">
+         	     <arg0 key="addfacilityform.timeslot.displayname"/>
+                 
+         </field>
+         
+         
+          <field property="membersslot"
+         	   depends="required,mask">
+         	     <arg0 key="addfacilityform.membersslot.displayname"/>
+              
+                     <var>
+                       <var-name>mask</var-name>
+                       <var-value>^\d{1}\d*$</var-value>
+                     </var>
+                     
+         </field>
+         
+          <field  property="faccity"
+         	   depends="required,mask">
+         	     <arg0 key="addfacilityform.faccity.displayname"/>         	    
+                     <var>
+                       <var-name>mask</var-name>
+                       <var-value>^[a-zA-Z ]*$</var-value>
+                     </var>
+                     
+         </field>
+         
+          <field  property="faczip"
+         	   depends="required,mask">
+         	 <arg0 key="addfacilityform.faczip.displayname"/>         	    
+                   <var>
+					<var-name>mask</var-name>
+					<var-value>^\d{5}\d*$</var-value>
+				</var>
+                     
+         </field>
+         
+         <field  property="faccontactno"
+         	   depends="required,mask">
+         	     <arg0 key="addfacilityform.faccontactno.displayname"/>         	    
+                    <var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9-+]*$</var-value>
+				</var>
+                     
+         </field>
+         </form> -->
+       
+         
+   </formset>
+   </form-validation>

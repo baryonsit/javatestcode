@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">	
+<struts-config>
+	<form-beans>
+
+	  <form-bean
+            name="registrationForm"
+            type="modUser.userVo.cVBusinessOwner"/>
+            
+          <form-bean
+            name="businessuserregistrationForm"
+            type="modUser.userVo.cVBusinessUser"/>
+            
+           <form-bean
+            name="loginForm"
+            type="modUser.userVo.cVUserLogin"/>
+            
+           <form-bean
+            name="changepasswordForm"
+            type="modUser.userVo.cVChangePassword"/>
+            
+           <form-bean
+            name="forgotpasswordForm"
+            type="modUser.userVo.cVForgotPassword"/>
+            
+           <form-bean
+            name="businesslistoppForm"
+            type="modAdmin.adminVo.cVBusinessList"/>
+            
+           <form-bean
+            name="viewappoperationsForm"
+            type="modAdmin.adminVo.cVViewAppointments"/>
+            
+           <form-bean
+            name="profileForm"
+            type="modCommon.commonVo.cVProfileManagement"/>
+            
+            <form-bean
+            name="userprofileForm"
+            type="modCommon.commonVo.cVProfileManagement"/>
+	
+	   <form-bean
+            name="addfacilityform"
+            type="modFacility.facilityVo.cVFacilityManage"/>
+            
+        <form-bean
+            name="deletefacilityform"
+            type="modFacility.facilityVo.cVFacilityManage"/>
+
+        <form-bean
+            name="subscriptionmangeform"
+            type="modAdmin.adminVo.cVSubscription"/>
+            
+        <form-bean
+            name="subscriptiondeleteform"
+            type="modAdmin.adminVo.cVSubscription"/>
+    
+	  <form-bean
+            name="globalsettingform"
+            type="modAdmin.adminVo.cVSubscription"/>          
+	 
+	  <form-bean
+            name="generalsearchform"
+            type="modCommon.commonVo.cVSearch"/>
+
+          <form-bean
+            name="fixappoint"
+            type="modAppointment.appointmentVo.cVFixAppointment"/>
+     
+	  <form-bean
+            name="sendMailForm"
+            type="modCommon.commonVo.cVSendMail"/>
+         
+	  <form-bean
+            name="sendSmsForm"
+            type="modCommon.commonVo.cVSendMail"/>
+	   <form-bean
+            name="globalSettingByBo"
+            type="modAdmin.adminVo.cVGlobalSettingByBusinessOwner"/>
+       <form-bean
+            name="SearchBusinessform" 
+            type="modAdmin.adminVo.cVBusinessList"/>    
+       <form-bean
+            name="facilityregistration" 
+            type="modFacility.facilityVo.cVFacilityReg"/>   
+             
+       </form-beans>
+
+
+<action-mappings>
+	
+	<action
+			path="/register"
+		    	type="modUser.userAction.cABusinessOwnerReg"
+		 	input="/WEB/jsp/jsp-modUser/businessOwnerReg.jsp"
+		    	name="registrationForm"
+		    	validate="true"
+		    	scope="request">
+			<forward name="success"
+				path="/index.jsp"
+				redirect="false">
+			</forward>
+			<forward name="failure"
+				path="/WEB/jsp/jsp-modUser/businessOwnerReg.jsp"
+				redirect="false">
+			</forward>
+		</action>
+			
+	<action
+        	path="/businessuserreg"
+        	type="modUser.userAction.cABusinessUserReg"
+	    	input="/WEB/jsp/jsp-modUser/businessOwnerReg.jsp"
+            name="businessuserregistrationForm"
+            validate="true"
+			scope="request">
+		<forward name="success"
+			path="/index.jsp"
+			redirect="false">
+		</forward>
+		<forward name="failure"
+			path="/WEB/jsp/jsp-modUser/businessOwnerReg.jsp"
+			redirect="false">
+		</forward>
+	</action>
+			
+	<action
+        	path="/login"
+            	type="modUser.userAction.cAUserLogin"
+	    	input="/index.jsp"
+            	name="loginForm"
+            	validate="true"
+		scope="request">
+		<forward name="success"
+			path="/index.jsp"
+			redirect="false">
+		</forward>
+		<forward name="failure"
+			path="/index.jsp"
+			redirect="false">
+		</forward>
+		<forward name="institutefailure"
+			path="/WEB/jsp/jsp-modCommon/InstituteError.jsp"
+			redirect="false">
+		</forward>
+	</action>
+			
+	<action
+        	path="/changepassword"
+            type="modUser.userAction.cAChangePassword"
+	    	input="/WEB/jsp/jsp-modUser/changePassword.jsp"
+            name="changepasswordForm"
+			validate="true"
+			scope="request">
+		<forward name="success"
+			path="/index.jsp"/>
+		<forward name="failure"
+			path="/WEB/jsp/jsp-modUser/changePassword.jsp"/>
+	</action>
+			
+	<action
+        	path="/forgotpassword"
+        	type="modUser.userAction.cAForgotPassword"
+	    	input="/WEB/jsp/jsp-modUser/forgotPassword.jsp"
+            	name="forgotpasswordForm"
+            	validate="true"
+		scope="request">
+		<forward name="success"
+			path="/index.jsp"
+			redirect="false">
+		</forward>
+		<forward name="failure"
+			path="/WEB/jsp/jsp-modUser/forgotPassword.jsp"
+			redirect="false">
+		</forward>
+	</action>
+			
+	<action
+        	path="/businesslistopp"
+            	type="modAdmin.adminAction.cABusinessList"
+	    	input="/WEB/jsp/jsp-modAdmin/businessList.jsp"
+            	name="businesslistoppForm"
+		scope="request">
+		<forward name="success"
+			path="/WEB/jsp/jsp-modAdmin/businessList.jsp"
+			redirect="false">
+		</forward>
+		<forward name="failure"
+			path="/WEB/jsp/jsp-modAdmin/businessList.jsp"
+			redirect="false">
+		</forward>
+	</action>
+			
+	<action
+        	path="/viewappoperation"
+            	type="modAdmin.adminAction.cAViewAppointments"
+	    	input="/WEB/jsp/jsp-modAdmin/viewAppointments.jsp"
+            	name="viewappoperationsForm"
+		scope="request">
+		<forward name="success"
+			path="/WEB/jsp/jsp-modAdmin/viewAppointments.jsp"
+			redirect="false">
+		</forward>
+		<forward name="failure"
+			path="/WEB/jsp/jsp-modAdmin/viewAppointments.jsp"
+			redirect="false">
+		</forward>
+	</action>
+			
+	<action
+        	path="/myprofile"
+           	type="modCommon.commonAction.cAProfileManagement"
+	    	input="/WEB/jsp/jsp-modCommon/myProfile.jsp"
+           	name="profileForm"
+           	validate="true"
+			scope="request">
+		<forward name="success"
+			path="/index.jsp"
+			redirect="false">
+		</forward>
+		<forward name="failure"
+			path="/WEB/jsp/jsp-modCommon/myProfile.jsp"
+			redirect="false">
+		</forward>
+	</action>
+	
+	<action
+        	path="/myprofileuser"
+           	type="modCommon.commonAction.cAProfileManagement"
+	    	input="/WEB/jsp/jsp-modCommon/myProfile.jsp"
+           	name="userprofileForm"
+           	validate="true"
+			scope="request">
+		<forward name="success"
+			path="/index.jsp"
+			redirect="false">
+		</forward>
+		<forward name="failure"
+			path="/WEB/jsp/jsp-modCommon/myProfile.jsp"
+			redirect="false">
+		</forward>
+	</action>
+
+	<action
+            path="/addfacility"
+            type="modFacility.facilityAction.cAFacilityManage"
+	    	input="/WEB/jsp/jsp-modFacility/facilityManage.jsp"
+            name="addfacilityform"
+			scope="request">
+			<forward name="insert_success"
+				path="/WEB/jsp/jsp-modFacility/facilityList.jsp"
+				redirect="false"></forward>
+				<forward name="facility_exist"
+				path="/WEB/jsp/jsp-modFacility/facilityManage.jsp"
+				redirect="false"></forward>
+				<forward name="insert_failure"
+				path="/WEB/jsp/jsp-modFacility/facilityList.jsp"
+				redirect="false"></forward>
+				<forward name="update_success"
+				path="/WEB/jsp/jsp-modFacility/facilityList.jsp"
+				redirect="false"></forward>
+				<forward name="update_successfully"
+				path="/WEB/jsp/jsp-modAdmin/businessList.jsp"
+				redirect="false"></forward>
+				<forward name="update_failure"
+				path="/WEB/jsp/jsp-modFacility/facilityManage.jsp"
+				redirect="false"></forward>
+				<forward name="delete"
+				path="/WEB/jsp/jsp-modFacility/facilityList.jsp"
+				redirect="false"></forward>
+				<forward name="success"
+				path="/index.jsp"
+				redirect="false"></forward>
+				<forward name="status-success"
+				path="/WEB/jsp/jsp-modAdmin/viewAppointments.jsp?search_key=loadall"
+				redirect="false"></forward>
+				<forward name="failure"
+				path="/index.jsp"
+				redirect="false"></forward>
+			</action>
+
+
+	<action
+            path="/deletefacility"
+            type="modFacility.facilityAction.cADeleteFacility"
+	    	input="/WEB/jsp-modFacility/facilityList.jsp"
+            name="deletefacilityform"
+			scope="request">
+			<forward name="delete-success"
+				path="/WEB/jsp/jsp-modFacility/facilityList.jsp"
+				redirect="false"></forward>
+				<forward name="delete-failure"
+				path="/WEB/jsp/jsp-modFacility/facilityList.jsp"
+				redirect="false"></forward>
+				<forward name="update-success"
+				path="/WEB/jsp/jsp-modCommon/facilitiesOfBusiness.jsp"
+				redirect="false"></forward>
+				<forward name="update-failure"
+				path="/WEB/jsp/jsp-modCommon/facilitiesOfBusiness.jsp"
+				redirect="false"></forward>
+				
+			</action>
+	<action 
+	      path="/SearchBusiness"
+	      type="modAdmin.adminAction.cASearchBusiness"
+	      input="/index.jsp"
+	      name="SearchBusinessform"
+	      scope="request">
+	      <forward name="success"
+	              path="/index.jsp"
+	              redirect="false">
+	      </forward>
+	      <forward name="failure"  
+	              path="/index.jsp"
+	              redirect="false">
+	      </forward>
+	</action>
+	
+	<action
+            path="/subscription"
+            type="modAdmin.adminAction.cASubscription"
+	    	input="/WEB/jsp/jsp-modAdmin/subscriptionManage.jsp"
+            name="subscriptionmangeform"
+            validate="true"
+			scope="request">
+			<forward name="Subscription_exist"
+				path="/WEB/jsp/jsp-modAdmin/subscriptionManage.jsp"
+				redirect="false"></forward>
+			<forward name="insert_success"
+				path="/WEB/jsp/jsp-modAdmin/subscriptionList.jsp"
+				redirect="false"></forward>
+				<forward name="insert_failure"
+				path="/WEB/jsp/jsp-modAdmin/subscriptionList.jsp"
+				redirect="false"></forward>
+				<forward name="update_success"
+				path="/WEB/jsp/jsp-modAdmin/subscriptionList.jsp"
+				redirect="false"></forward>
+				<forward name="update_failure"
+				path="/WEB/jsp/jsp-modAdmin/subscriptionList.jsp"
+				redirect="false"></forward>
+				
+				</action>
+				
+				<action
+            path="/deletesubscription"
+            type="modAdmin.adminAction.cADeleteSubscription"
+	    	input="/WEB/jsp/jsp-modAdmin/subscriptionList.jsp"
+            name="subscriptiondeleteform"            
+			scope="request">
+			<forward name="delete_success"
+				path="/WEB/jsp/jsp-modAdmin/subscriptionList.jsp"
+				redirect="false"></forward>
+				
+				<forward name="delete_failure"
+				path="/WEB/jsp/jsp-modAdmin/subscriptionList.jsp"
+				redirect="false"></forward>
+				</action>
+
+				<action
+            path="/globalsetting"
+            type="modAdmin.adminAction.cAGlobalSettings"
+	    	input="/WEB/jsp/jsp-modAdmin/globalSettings.jsp"
+            name="globalsettingform"
+			scope="request">
+			<forward name="success"
+				path="/index.jsp"
+				redirect="false"></forward>
+				<forward name="failure"
+				path="/index.jsp"
+				redirect="false"></forward>
+				</action>
+
+				<action
+            path="/generalsearch"
+            type="modCommon.commonAction.cASearch"
+	    	input="/WEB/jsp/jsp-modCommon/searchResult.jsp"
+            name="generalsearchform"
+			scope="request">
+			<forward name="success"
+				path="/WEB/jsp/jsp-modCommon/searchResult.jsp"
+				redirect="false"></forward>
+				<forward name="failure"
+				path="/WEB/jsp/jsp-modCommon/searchResult.jsp"
+				redirect="false"></forward>
+				</action>
+
+		<action
+            path="/fix"
+            type="modAppointment.appointmentAction.cAFixAppointment"
+                input="/WEB/jsp/jsp-modAppointment/fixAppointment.jsp"
+            name="fixappoint"
+                        scope="request">
+                        <forward name="success"
+                                path="/index.jsp"
+                                redirect="false"/>
+                        <forward name="failure"
+                                path="/index.jsp"
+                                redirect="true"/>
+                       
+                         <forward name="cancel-sucess"
+                                path="/index.jsp"
+                                redirect="false"/>
+                         <forward name="cancel-failure"
+                                path="/index.jsp"
+                                redirect="false"/>
+				 </action>
+
+				 <action
+            path="/sendMail"
+            type="modCommon.commonAction.cASendMail"
+	    	input="/WEB/jsp/jsp-modAppointment/fixAppointment.jsp"
+            name="sendMailForm"
+			scope="request">
+			<forward name="success"
+				path="/index.jsp"
+				redirect="false"></forward>
+				<forward name="failure"
+				path="/index.jsp"
+				redirect="false"></forward>
+		</action>
+
+		 <action
+            path="/sendSms"
+            type="modCommon.commonAction.cASendSms"
+	    	input="/WEB/jsp/jsp-modAppointment/fixAppointment.jsp"
+            name="sendSmsForm"
+			scope="request">
+			<forward name="success"
+			path="/index.jsp"
+				redirect="false"></forward>
+				<forward name="failure"
+				path="/index.jsp"
+				redirect="false"></forward>
+		</action>
+		
+		<action
+            path="/globalsettingbybusinessowner"
+            type="modAdmin.adminAction.cAGlobalSettingByBusinessOwner"
+	    	input="/WEB/jsp/jsp-modAdmin/globalSettingByBusinessOwner.jsp"
+            name="globalSettingByBo"
+			scope="request">
+			<forward name="success"
+				path="/index.jsp"
+				redirect="false"></forward>
+				<forward name="failure"
+				path="/index.jsp"
+				redirect="false"></forward>
+	   </action>
+		
+	   <action
+            path="/facilityreg"
+            type="modFacility.facilityAction.cAFacilityReg"
+	    	input="/WEB/jsp/jsp-modCommon/facilityDetails.jsp"
+            name="facilityregistration"
+			scope="request">
+			<forward name="success"
+				path="/index.jsp"
+				redirect="false"></forward>
+				<forward name="failure"
+				path="/index.jsp"
+				redirect="false"></forward>
+	   </action>
+	   
+	   <!-- code for user registration insert & update -->
+	 <action
+        	path="/UserRegistration"
+            	type="modUser.userregistrationAction.cAuserregistration"
+            	validate="true"
+		scope="request">
+		<!-- <forward name="success"
+			path="/index.jsp"
+			redirect="false">
+		</forward>
+		<forward name="failure"
+			path="/index.jsp"
+			redirect="false">
+		</forward> -->
+	</action>		
+				
+			
+</action-mappings>
+ 
+ <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+ 
+ <message-resources parameter="resource.ApplicationResources"/>
+ 
+ <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+ </plug-in>
+    
+ <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,
+                                              /WEB-INF/validation.xml"/>
+  </plug-in>
+  
+</struts-config>

@@ -1,0 +1,25 @@
+
+========$$$$$$@@@@@$$$$$$$==========
+	EzApointment Release Notes
+========$$$$$$@@@@@$$$$$$$==========
+
+Release date:23-May-2014
+
+Tag Name :ReleaseforezSocialMay2014
+
+Database Used:ezappointment
+
+======================================
+Major implementations for this release
+=======================================
+1) No Major Implementations in this release
+
+2) This Release is to deploy on the application server - Integration with ezsocial(quantum)
+
+========================================
+Implementations pending for Next Release 
+========================================
+
+1) Verify Mail Functionality.
+
+2) Setting up Sendmail & configuring that with ezappointment application.
